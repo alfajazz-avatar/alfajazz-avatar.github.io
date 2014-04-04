@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,34 +10,86 @@
     <title>Аватар для AlfaJazz</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
 
-    <div class="container">
+<div class="container">
 
-      <div class="starter-template">
-          <button class="btn btn-primary">Загрузить фото</button>
-      </div>
+    <div class="starter-template">
+        <div class="panel panel-primary">
 
-    </div><!-- /.container -->
+            <span data-bind="visible: step() == 1">
+                <div class="panel-heading">Шаг 1. Загрузите фото</div>
+                <div class="panel-body">
+                    <img src="" width="200" height="200" border="1"> <br><br>
+                    <button class="btn btn-primary">Загрузить фото</button>
+                </div>
+            </span>
+
+            <span data-bind="visible: step() == 2" style="display: none">
+                <div class="panel-heading">Шаг 2. Выберите картинку</div>
+                <div class="panel-body">
+                    <div class="wrapper">
+                        <div class="jcarousel-wrapper">
+                            <div class="jcarousel">
+                                <ul>
+                                    <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1.jpg" width="200" height="200" alt=""></li>
+                                    <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="200" height="200" alt=""></li>
+                                </ul>
+                            </div>
+
+                            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+                            <p class="jcarousel-pagination">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </span>
+
+            <span data-bind="visible: step() == 3" style="display: none">
+                <div class="panel-heading">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>
+                <div class="panel-body">
+                    <img src="" width="200" height="200" border="1"> <br><br>
+                    <button class="btn btn-primary">Загрузить в профиль</button>
+                </div>
+            </span>
+
+            <div class="panel-footer" style="height: 50px">
+                <!-- ko if: step() > 1 -->
+                    <button style="float: left" class="btn btn-primary" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
+                <!-- /ko -->
+
+                <!-- ko if: step() < 3 -->
+                    <button style="float: right" class="btn btn-primary" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
+                <!-- /ko -->
+            </div>
+        </div>
+
+    </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
-  </body>
+    <script src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+    <script src="js/jquery.jcarousel.min.js"></script>
+    <script src="js/knockout-3.1.0.js"></script>
+    <script src="main.js"></script>
+</body>
 </html>

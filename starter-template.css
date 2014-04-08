@@ -188,6 +188,9 @@ body {
     margin: auto;
 }
 
+.content .form .form_inner {
+    height: 275px;
+}
 .content .form .form_title {
     background-color: #f5f5f5;
     margin-bottom: 20px;
@@ -255,6 +258,10 @@ body {
 
 .tspcd40 {
     margin-top: 40px;  
+}
+
+.tspcd50 {
+    margin-top: 50px;
 }
 
 .alfajazz,

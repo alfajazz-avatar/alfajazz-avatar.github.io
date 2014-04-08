@@ -27,9 +27,9 @@
     <div class="paperback"></div>
     <div class="content">
         <div class="starter-template">
-            <div class="form heartback">
-                    <div data-bind="visible: step() == 1">
-                        <div class="form_title">Шаг 1. Загрузите фото</div>
+            <div class="form heartback clearfix">
+                    <div data-bind="visible: step() == 1" class="tspcd50 form_inner">
+                        <!-- <div class="form_title">Шаг 1. Загрузите фото</div> -->
                         <div class="form_body">
                             <div class="image_block">
                                 <div class="empty_image"></div>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-bind="visible: step() == 2" style="display: none">
+                    <div data-bind="visible: step() == 2" style="display: none" class="tspcd50 form_inner">
                         <div class="">Шаг 2. Выберите картинку</div>
                         <div class="">
                             <div class="wrapper">
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-bind="visible: step() == 3" style="display: none">
+                    <div data-bind="visible: step() == 3" style="display: none" class="tspcd50 form_inner">
                         <div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>
                         <div class="">
                             <img src="" width="200" height="200" border="1"> <br><br>

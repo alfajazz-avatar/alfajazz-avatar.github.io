@@ -141,3 +141,156 @@
     opacity: 1;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
 }
+
+body {
+    min-width: 500px;
+}
+.mainback,
+.paperback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mainback {
+    background-image: url("images/main-background.png");
+    z-index: 1;
+}
+
+.paperback {
+    background-image: url("images/paper-background.png");
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.heartback {
+    background-image: url("images/heart-background.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.content,
+.footer {
+    width: 467px;
+    margin: 0 auto;
+}
+.content {
+    position: relative;
+    z-index: 3;
+}
+
+.content .form {
+    width: 381px;
+    height: 389px;
+    margin: auto;
+}
+
+.content .form .form_title {
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 125%;
+}
+
+.image_block {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border: 1px solid #b8b8b8;
+}
+
+.image_block .empaty_image,
+.image_block img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.image_block .empty_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.image_block img {
+    display: none;
+    border: 0;
+}
+
+.starter-template {
+    padding: 30px 0;
+}
+
+.footer {
+    border-top: 2px solid #ff0000;
+}
+
+.footer .line {
+    width: 320px;
+    margin: 0 auto;
+    padding-top: 5px;
+}
+
+.footer .icon{
+    display: block;
+}
+
+.lspcd15 {
+    margin-left: 15px;
+}
+
+.lspcd10 {
+    margin-left: 10px;
+}
+
+.lspcd5 {
+    margin-left: 5px;
+}
+
+.tspcd40 {
+    margin-top: 40px;  
+}
+
+.alfajazz,
+.social_text,
+.icon {
+    float: left;
+}
+
+.alfajazz {
+    width: 102px;
+    height: 55px;
+    background-image: url("images/alfa-jazz.png");
+}
+
+.social_text {
+    height: 55px;
+    line-height: 55px;
+    color: #df2828;
+    font-weight: bold;
+}
+
+.footer .facebook,
+.footer .vk {
+    width: 26px;
+    height: 55px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer .facebook {
+    background-image: url("images/icon-facebook.png");
+}
+
+.footer .vk {
+    background-image: url("images/icon-vk.png");
+}
+
+

@@ -23,66 +23,72 @@
 </head>
 
 <body>
-
-
-<div class="container">
-
-    <div class="starter-template">
-        <div class="panel panel-primary">
-
-            <span data-bind="visible: step() == 1">
-                <div class="panel-heading">Шаг 1. Загрузите фото</div>
-                <div class="panel-body">
-                    <img src="" width="200" height="200" border="1"> <br><br>
-                    <button class="btn btn-primary">Загрузить фото</button>
-                </div>
-            </span>
-
-            <span data-bind="visible: step() == 2" style="display: none">
-                <div class="panel-heading">Шаг 2. Выберите картинку</div>
-                <div class="panel-body">
-                    <div class="wrapper">
-                        <div class="jcarousel-wrapper">
-                            <div class="jcarousel">
-                                <ul>
-                                    <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1.jpg" width="200" height="200" alt=""></li>
-                                    <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="200" height="200" alt=""></li>
-                                </ul>
+    <div class="mainback"></div>
+    <div class="paperback"></div>
+    <div class="content">
+        <div class="starter-template">
+            <div class="form heartback">
+                    <div data-bind="visible: step() == 1">
+                        <div class="form_title">Шаг 1. Загрузите фото</div>
+                        <div class="form_body">
+                            <div class="image_block">
+                                <div class="empty_image"></div>
+                                <img src="" width="200" height="200">
                             </div>
-
-                            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-
-                            <p class="jcarousel-pagination">
-
-                            </p>
+                            <div class="controls tspcd40">
+                                <button class="btn btn-danger">Завантажити фото</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </span>
+                    <div data-bind="visible: step() == 2" style="display: none">
+                        <div class="">Шаг 2. Выберите картинку</div>
+                        <div class="">
+                            <div class="wrapper">
+                                <div class="jcarousel-wrapper">
+                                    <div class="jcarousel">
+                                        <ul>
+                                            <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1.jpg" width="200" height="200" alt=""></li>
+                                            <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="200" height="200" alt=""></li>
+                                        </ul>
+                                    </div>
 
-            <span data-bind="visible: step() == 3" style="display: none">
-                <div class="panel-heading">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>
-                <div class="panel-body">
-                    <img src="" width="200" height="200" border="1"> <br><br>
-                    <button class="btn btn-primary">Загрузить в профиль</button>
-                </div>
-            </span>
+                                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
 
-            <div class="panel-footer" style="height: 50px">
-                <!-- ko if: step() > 1 -->
-                    <button style="float: left" class="btn btn-primary" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
-                <!-- /ko -->
+                                    <p class="jcarousel-pagination">
 
-                <!-- ko if: step() < 3 -->
-                    <button style="float: right" class="btn btn-primary" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
-                <!-- /ko -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-bind="visible: step() == 3" style="display: none">
+                        <div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>
+                        <div class="">
+                            <img src="" width="200" height="200" border="1"> <br><br>
+                            <button class="btn btn-primary">Загрузить в профиль</button>
+                        </div>
+                    </div>
+                    <div class="tspcd40" style="height: 50px">
+                        <!-- ko if: step() > 1 -->
+                            <button style="float: left" class="btn btn-primary" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
+                        <!-- /ko -->
+
+                        <!-- ko if: step() < 3 -->
+                            <button style="float: right" class="btn btn-primary" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
+                        <!-- /ko -->
+                    </div>
             </div>
         </div>
-
+        <div class="footer">
+            <div class="line clearfix">
+                <i class="icon alfajazz"></i>
+                <span class="social_text lspcd15">в соц мережі : </span>
+                <i class="icon facebook lspcd15"></i>
+                <i class="icon vk lspcd5"></i>
+            </div>
+        </div>
     </div>
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

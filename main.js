@@ -59,6 +59,23 @@ function init_carousel() {
 }
 
 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#photo_img').attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+        $('#photo_img').show();
+    }
+}
+
+
 $(function() {
     ko.applyBindings(new ViewModel);
+    $("#photo_file").change(function(){
+        readURL(this);
+    });
 });

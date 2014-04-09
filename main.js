@@ -1,10 +1,13 @@
 ViewModel = function() {
     this.step = ko.observable(1);
+    this.isset_foto = ko.observable();
 
     this.next_step = function() {
         this.step(this.step() + 1);
         if (this.step() == 2)
             init_carousel();
+        if (this.step() == 3)
+            create_img();
     };
 
     this.prev_step = function() {
@@ -16,6 +19,8 @@ ViewModel = function() {
     }, this);
 
     this.next_enabled = ko.computed(function() {
+        if (this.step() == 1)
+            return this.isset_foto();
         return true;
     }, this);
 };
@@ -73,9 +78,21 @@ function readURL(input) {
 }
 
 
+function create_img() {
+    $('.watermark').attr('src', $('#photo_img').attr('src'));
+    wmark.init({
+        //"position": "top-right", // default "bottom-right"
+        "opacity": 100, // default 50
+        "path": $('.jcarousel').jcarousel('first').find('img').attr('src')
+    });
+}
+
+
 $(function() {
-    ko.applyBindings(new ViewModel);
+    var vm = new ViewModel;
+    ko.applyBindings(vm);
     $("#photo_file").change(function(){
         readURL(this);
+        vm.isset_foto(true);
     });
 });

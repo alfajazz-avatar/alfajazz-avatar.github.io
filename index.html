@@ -50,8 +50,8 @@
                                 <div class="jcarousel-wrapper">
                                     <div class="jcarousel">
                                         <ul>
-                                            <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1.jpg" width="200" height="200" alt=""></li>
-                                            <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="200" height="200" alt=""></li>
+                                            <li><img src="images/watermarks/img1.jpg" width="200" height="200" alt=""></li>
+                                            <li><img src="images/watermarks/img2.jpg" width="200" height="200" alt=""></li>
                                         </ul>
                                     </div>
 
@@ -68,12 +68,9 @@
                     <div data-bind="visible: step() == 3" style="display: none" class="tspcd50 form_inner">
                         <!--<div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>-->
                         <div class="">
-                            <div class="image_block">
-                                <div class="empty_image"></div>
-                                <img src="" width="200" height="200">
-                            </div>
+                            <img src="" width="200" height="200" class="watermark">
                             <br><br>
-                            <button class="btn btn-danger">Загрузить в профиль</button>
+                            <button class="btn btn-danger">Завантажити в профiль</button>
                         </div>
                     </div>
                     <div class="tspcd40" style="height: 50px">
@@ -82,7 +79,7 @@
                         <!-- /ko -->
 
                         <!-- ko if: step() < 3 -->
-                            <button style="float: right" class="btn btn-danger" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
+                            <button style="float: right" class="btn btn-danger" data-bind="click: next_step, enable: next_enabled">Вперед</button>
                         <!-- /ko -->
                     </div>
             </div>
@@ -103,6 +100,7 @@
     <script src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="js/jquery.jcarousel.min.js"></script>
     <script src="js/knockout-3.1.0.js"></script>
+    <script src="js/watermark.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

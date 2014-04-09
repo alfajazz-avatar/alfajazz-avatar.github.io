@@ -25,8 +25,12 @@ ViewModel = function() {
     }, this);
 
     this.upload = function() {
-        VK.api('photos.getProfileUploadServer', {}, function(data) {
-            console.log(data);
+        VK.api('photos.getProfileUploadServer', {test_mode: true}, function(data) {
+            var formData = new FormData();
+            formData.append('file', $('.watermark').attr('src'));
+            $.post(data.response.upload_url, formData, function(data) {
+                console.log(data);
+            });
         });
     };
 };

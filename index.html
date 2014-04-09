@@ -36,12 +36,15 @@
                                 <img src="" width="200" height="200">
                             </div>
                             <div class="controls tspcd40">
-                                <button class="btn btn-danger">Завантажити фото</button>
+                                <div style="text-align: center; overflow: hidden; width: 160px; height: 35px;" class="btn btn-danger">
+                                    <div>Завантажити фото</div>
+                                    <input type="file" name="file" id="file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 100px;">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div data-bind="visible: step() == 2" style="display: none" class="tspcd50 form_inner">
-                        <div class="">Шаг 2. Выберите картинку</div>
+                        <!--<div class="">Шаг 2. Выберите картинку</div>-->
                         <div class="">
                             <div class="wrapper">
                                 <div class="jcarousel-wrapper">
@@ -63,29 +66,33 @@
                         </div>
                     </div>
                     <div data-bind="visible: step() == 3" style="display: none" class="tspcd50 form_inner">
-                        <div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>
+                        <!--<div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>-->
                         <div class="">
-                            <img src="" width="200" height="200" border="1"> <br><br>
-                            <button class="btn btn-primary">Загрузить в профиль</button>
+                            <div class="image_block">
+                                <div class="empty_image"></div>
+                                <img src="" width="200" height="200">
+                            </div>
+                            <br><br>
+                            <button class="btn btn-danger">Загрузить в профиль</button>
                         </div>
                     </div>
                     <div class="tspcd40" style="height: 50px">
                         <!-- ko if: step() > 1 -->
-                            <button style="float: left" class="btn btn-primary" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
+                            <button style="float: left" class="btn btn-danger" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
                         <!-- /ko -->
 
                         <!-- ko if: step() < 3 -->
-                            <button style="float: right" class="btn btn-primary" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
+                            <button style="float: right" class="btn btn-danger" data-bind="click: next_step, enable: next_enabled">Вперёд</button>
                         <!-- /ko -->
                     </div>
             </div>
         </div>
         <div class="footer">
             <div class="line clearfix">
-                <i class="icon alfajazz"></i>
+                <a href="http://alfajazzfest.com" target="_blank"><i class="icon alfajazz"></i></a>
                 <span class="social_text lspcd15">в соц мережі : </span>
-                <i class="icon facebook lspcd15"></i>
-                <i class="icon vk lspcd5"></i>
+                <a href="https://www.facebook.com/alfajazzfest" target="_blank"><i class="icon facebook lspcd15"></i></a>
+                <a href="http://vk.com/alfajazz2014" target="_blank"><i class="icon vk lspcd5"></i></a>
             </div>
         </div>
     </div>

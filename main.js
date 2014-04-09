@@ -23,6 +23,12 @@ ViewModel = function() {
             return this.isset_foto();
         return true;
     }, this);
+
+    this.upload = function() {
+        VK.api('photos.getProfileUploadServer', {}, function(data) {
+            console.log(data);
+        });
+    };
 };
 
 
@@ -95,4 +101,9 @@ $(function() {
         readURL(this);
         vm.isset_foto(true);
     });
+    VK.init(function() {
+         console.log('vk init ok');
+        }, function() {
+         console.log('vk init failed');
+    }, '5.19');
 });

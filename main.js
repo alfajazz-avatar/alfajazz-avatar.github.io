@@ -7,7 +7,7 @@ ViewModel = function() {
         if (this.step() == 2)
             init_carousel();
         if (this.step() == 3)
-            create_img();
+            this.create_img();
     };
 
     this.prev_step = function() {
@@ -24,12 +24,45 @@ ViewModel = function() {
         return true;
     }, this);
 
+    this.create_img = function() {
+        var self = this;
+
+        var formData = new FormData(document.getElementById('form'));
+        formData.append('watermark', $('.jcarousel').jcarousel('first').find('img').attr('src'));
+
+        $.ajax({
+            url: 'http://mif.webfactional.com/php/generator.php',
+            type: 'POST',
+            data: formData,
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('.watermark').attr('src', data);
+            }
+        });
+    };
+
     this.upload = function() {
         VK.api('photos.getProfileUploadServer', {test_mode: true}, function(data) {
-            var formData = new FormData();
+            /*var formData = new FormData();
             formData.append('file', $('.watermark').attr('src'));
             $.post(data.response.upload_url, formData, function(data) {
                 console.log(data);
+            });*/
+
+
+            var params = {
+                //url: data.response.upload_url,
+                url: "http://cs411920.vk.com/upload.php?_query=eyJhY3QiOiJvd25lcl9waG90byIsInNhdmUiOjEsImFwaV93cmFwIjp7InNlcnZlciI6OTk5LCJwaG90byI6IntyZXN1bHR9IiwibWlkIjoyMzE0ODUyLCJoYXNoIjoiNzQ0OGY5M2Y0MDVkZmQ1YzQ0NGY1ZDRhYWJiODQ5NDIiLCJtZXNzYWdlX2NvZGUiOjIsInByb2ZpbGVfYWlkIjotNn0sIm9pZCI6MjMxNDg1MiwibWlkIjoyMzE0ODUyLCJzZXJ2ZXIiOjQxMTkyMCwiX29yaWdpbiI6Imh0dHBzOlwvXC92ay5jb20iLCJfc2lnIjoiNDY3MDY2OGIzYTdjOTExMTM4NWQyYjA4ZGI5YmU0MWQifQ",
+                data: $('.watermark').attr('src')
+            };
+            //var params = {data: 1};
+            $.post('http://aljazazzserv.hdd1.ru/', params, function(data) {
+                console.log(data);
+                var res = JSON.parse(data.split('}')[0] + '}');
+                console.log(res);
             });
         });
     };
@@ -85,16 +118,6 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
         $('#photo_img').show();
     }
-}
-
-
-function create_img() {
-    $('.watermark').attr('src', $('#photo_img').attr('src'));
-    wmark.init({
-        //"position": "top-right", // default "bottom-right"
-        "opacity": 100, // default 50
-        "path": $('.jcarousel').jcarousel('first').find('img').attr('src')
-    });
 }
 
 

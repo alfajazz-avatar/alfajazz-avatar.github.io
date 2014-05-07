@@ -38,7 +38,9 @@
                             <div class="controls tspcd40">
                                 <div style="text-align: center; overflow: hidden; width: 160px; height: 35px;" class="btn btn-danger">
                                     <div>Завантажити фото</div>
-                                    <input type="file" name="file" id="photo_file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 100px;">
+                                    <form id="form">
+                                        <input type="file" name="file" id="photo_file" size="1" style="margin-top: -50px; margin-left:-410px; -moz-opacity: 0; filter: alpha(opacity=0); opacity: 0; font-size: 150px; height: 100px;">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -48,10 +50,11 @@
                         <div class="">
                             <div class="wrapper">
                                 <div class="jcarousel-wrapper">
-                                    <div class="jcarousel">
+                                    <div class="jcarousel" style="background-color: white">
                                         <ul>
                                             <li><img src="images/watermarks/img1.jpg" width="200" height="200" alt=""></li>
                                             <li><img src="images/watermarks/img2.jpg" width="200" height="200" alt=""></li>
+                                            <li><img src="images/watermarks/1.png" width="200" height="200" alt=""></li>
                                         </ul>
                                     </div>
 
@@ -100,7 +103,6 @@
     <script src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="js/jquery.jcarousel.min.js"></script>
     <script src="js/knockout-3.1.0.js"></script>
-    <script src="js/watermark.min.js"></script>
     <script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
     <script src="main.js"></script>
 </body>

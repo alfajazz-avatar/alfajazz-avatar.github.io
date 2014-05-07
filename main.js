@@ -51,6 +51,8 @@ ViewModel = function() {
                 data: $('.watermark').attr('src')
             };
             $.post('http://mif.webfactional.com/php/loader.php', params, function(data) {
+                data = JSON.parse(data);
+                data.test_mode = true;
                 VK.api('photos.saveProfilePhoto', data);
             });
         });

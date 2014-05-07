@@ -1,13 +1,25 @@
 <?
+include('SimpleImage.php');
+
 //header('Access-Control-Allow-Origin: http://alfajazz-avatar.github.io');
 header('Access-Control-Allow-Origin: *');
 
-$options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query(array('photo' => $_POST['data'])),
-    ),
-);
-$context = stream_context_create($options);
-echo file_get_contents($_POST['url'], false, $context);
+$filename = uniqid(rand(), true) . '.png';
+file_put_contents($filename, '');
+$path = realpath($filename);
+
+$photo = new abeautifulsite\SimpleImage();
+$photo->load_base64($_POST['data']);
+$photo->save($path);
+
+$post = array('photo'=>'@'.$path);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $_POST['url']);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+unlink($path);
+echo $result;

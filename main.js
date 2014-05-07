@@ -46,20 +46,11 @@ ViewModel = function() {
 
     this.upload = function() {
         VK.api('photos.getProfileUploadServer', {test_mode: true}, function(data) {
-            /*var formData = new FormData();
-            formData.append('file', $('.watermark').attr('src'));
-            $.post(data.response.upload_url, formData, function(data) {
-                console.log(data);
-            });*/
-
-
             var params = {
-                //url: data.response.upload_url,
-                url: "http://cs411920.vk.com/upload.php?_query=eyJhY3QiOiJvd25lcl9waG90byIsInNhdmUiOjEsImFwaV93cmFwIjp7InNlcnZlciI6OTk5LCJwaG90byI6IntyZXN1bHR9IiwibWlkIjoyMzE0ODUyLCJoYXNoIjoiNzQ0OGY5M2Y0MDVkZmQ1YzQ0NGY1ZDRhYWJiODQ5NDIiLCJtZXNzYWdlX2NvZGUiOjIsInByb2ZpbGVfYWlkIjotNn0sIm9pZCI6MjMxNDg1MiwibWlkIjoyMzE0ODUyLCJzZXJ2ZXIiOjQxMTkyMCwiX29yaWdpbiI6Imh0dHBzOlwvXC92ay5jb20iLCJfc2lnIjoiNDY3MDY2OGIzYTdjOTExMTM4NWQyYjA4ZGI5YmU0MWQifQ",
+                url: data.response.upload_url,
                 data: $('.watermark').attr('src')
             };
-            //var params = {data: 1};
-            $.post('http://aljazazzserv.hdd1.ru/', params, function(data) {
+            $.post('http://mif.webfactional.com/php/loader.php', params, function(data) {
                 console.log(data);
                 var res = JSON.parse(data.split('}')[0] + '}');
                 console.log(res);

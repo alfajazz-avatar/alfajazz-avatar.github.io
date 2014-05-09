@@ -25,22 +25,12 @@ ViewModel = function() {
     }, this);
 
     this.create_img = function() {
-        var self = this;
-
-        var formData = new FormData(document.getElementById('form'));
-        formData.append('watermark', $('.jcarousel').jcarousel('first').find('img').attr('src'));
-
-        $.ajax({
-            url: 'http://mif.webfactional.com/php/generator.php',
-            type: 'POST',
-            data: formData,
-            dataType: 'text',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                $('.watermark').attr('src', data);
-            }
+        var params = {
+            watermark: $('.jcarousel').jcarousel('first').find('img').attr('src'),
+            photo: $('#photo_img').attr('src')
+        };
+        $.post('http://mif.webfactional.com/php/generator.php', params, function (data) {
+            $('.watermark').attr('src', data);
         });
     };
 

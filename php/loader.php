@@ -1,8 +1,6 @@
 <?
+include('conf.php');
 include('SimpleImage.php');
-
-//header('Access-Control-Allow-Origin: http://alfajazz-avatar.github.io');
-header('Access-Control-Allow-Origin: *');
 
 $filename = uniqid(rand(), true) . '.png';
 file_put_contents($filename, '');

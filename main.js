@@ -101,23 +101,104 @@ function init_carousel() {
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
-            $('#photo_img').attr('src', e.target.result);
+            showPhotoResizer(e.target.result);
         };
-
         reader.readAsDataURL(input.files[0]);
-        $('#photo_img').show();
     }
 }
 
 
+function Dialog($dialog) {
+    var self = this;
+    this.$dialog = $dialog;
+    this.captionOK = "OK";
+    this.width = null;
+    this.show = function () {
+        var params = {
+            dialogClass: "no-close",
+            create: function (event, ui) {
+            },
+            buttons: [
+                {
+                    text: "Отмена",
+                    click: function() {self.onCancel(); }
+                },
+                {
+                    text: this.captionOK,
+                    click: function() {self.onOK(); }
+                }
+            ]
+        };
+        if (this.width) params.width = this.width;
+        this.$dialog.dialog(params);
+    };
+    this.hide = function () {
+        this.$dialog.dialog( "close" );
+    };
+    this.onOK = function () {
+
+    };
+    this.onCancel = function () {
+        this.hide();
+    };
+}
+
+
+function showPhotoResizer(url) {
+    var $dialog = $('#photoCropForm');
+    var coords = null;
+    $dialog.empty().append('<img src="">');
+
+    var dialog = new Dialog($dialog);
+    dialog.width = 440;
+    dialog.captionOK = 'Обрезать';
+    dialog.onOK = function () {
+        if (!coords)
+            return;
+
+        var formData = new FormData(document.getElementById('form'));
+        formData.append('coords', JSON.stringify(coords));
+
+        $.ajax({
+            url: 'http://mif.webfactional.com/php/resizer.php',
+            type: 'POST',
+            data: formData,
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
+                $('#photo_img').attr('src', data).show();
+                dialog.hide();
+                vm.isset_foto(true);
+            }
+        });
+    };
+
+    function setCoords(c) {
+        coords = c;
+    }
+
+    $('img', $dialog).bind("load", function (){
+        $(this).Jcrop({
+            boxWidth: 400,
+            setSelect: [0, 0, this.width, this.height],
+            aspectRatio: 1,
+            onSelect: setCoords,
+            onChange: setCoords
+        });
+        dialog.show();
+    }).attr('src', url);
+}
+
+
 $(function() {
-    var vm = new ViewModel;
+    vm = new ViewModel;
     ko.applyBindings(vm);
     $("#photo_file").change(function(){
         readURL(this);
-        vm.isset_foto(true);
     });
     VK.init(function() {
          console.log('vk init ok');

@@ -32,12 +32,15 @@ ViewModel = function() {
             watermark: $('.jcarousel').jcarousel('first').find('img').attr('src'),
             photo: $('#photo_img').attr('src')
         };
+        loading_start();
         $.post('http://mif.webfactional.com/php/generator.php', params, function (data) {
             $('.watermark').attr('src', data);
+            loading_end();
         });
     };
 
     this.upload = function() {
+        loading_start();
         VK.api('photos.getProfileUploadServer', {}, function(data) {
             var params = {
                 url: data.response.upload_url,
@@ -45,6 +48,7 @@ ViewModel = function() {
             };
             $.post('http://mif.webfactional.com/php/loader.php', params, function(data) {
                 data = JSON.parse(data);
+                loading_end();
                 VK.api('photos.saveProfilePhoto', data);
             });
         });
@@ -151,7 +155,7 @@ function showPhotoResizer(url) {
 
         var formData = new FormData(document.getElementById('form'));
         formData.append('coords', JSON.stringify(coords));
-
+        loading_start();
         $.ajax({
             url: 'http://mif.webfactional.com/php/resizer.php',
             type: 'POST',
@@ -161,9 +165,9 @@ function showPhotoResizer(url) {
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
                 $('#photo_img').attr('src', data);
                 dialog.hide();
+                loading_end();
                 vm.isset_foto(true);
             }
         });
@@ -188,6 +192,15 @@ function showPhotoResizer(url) {
 
 function set_sizes(selector) {
     $(selector).width(WIDTH).height(HEIGHT);
+}
+
+
+function loading_start() {
+    $("#overlay").show();
+}
+
+function loading_end() {
+    $("#overlay").hide();
 }
 
 

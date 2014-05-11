@@ -148,7 +148,7 @@ function showPhotoResizer(url) {
 
     var dialog = new Dialog($dialog);
     dialog.width = 440;
-    dialog.captionOK = 'Обрезать';
+    dialog.captionOK = 'Обрізати';
     dialog.onOK = function () {
         if (!coords)
             return;

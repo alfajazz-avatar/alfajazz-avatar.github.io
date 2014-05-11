@@ -28,7 +28,7 @@
        -moz-box-shadow: 0 0 2px #999;
             box-shadow: 0 0 2px #999;
     width: 220px;
-    height: 220px;
+    height: 318px;
 }
 
 
@@ -52,7 +52,7 @@
     position: relative;
     overflow: hidden;
     width: 200px;
-    height: 200px;
+    height: 300px;
 }
 
 .jcarousel ul {
@@ -72,7 +72,7 @@
 .jcarousel-control-prev,
 .jcarousel-control-next {
     position: absolute;
-    top: 85px;
+    top: 130px;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -232,6 +232,7 @@ body {
 
 .footer {
     border-top: 2px solid #ff0000;
+    margin-top: 40px;
 }
 
 .footer .line {
@@ -300,4 +301,6 @@ body {
     background-image: url("images/icon-vk.png");
 }
 
-
+.btn_nav {
+    margin-top: 25px;
+}

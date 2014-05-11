@@ -1,3 +1,6 @@
+WIDTH = 203;
+HEIGHT = 250;
+
 ViewModel = function() {
     this.step = ko.observable(1);
     this.isset_foto = ko.observable();
@@ -184,7 +187,15 @@ function showPhotoResizer(url) {
 }
 
 
+function set_sizes(selector) {
+    $(selector).width(WIDTH).height(HEIGHT);
+}
+
+
 $(function() {
+    set_sizes('.jcarousel img');
+    set_sizes('img.watermark');
+
     vm = new ViewModel;
     ko.applyBindings(vm);
     $("#photo_file").change(function(){

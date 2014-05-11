@@ -35,7 +35,7 @@
                         <div class="form_body">
                             <div class="image_block">
                                 <div class="empty_image"></div>
-                                <img src="" width="200" height="200" id="photo_img">
+                                <img src="" id="photo_img" width="200" height="200">
                             </div>
                             <div class="controls tspcd40">
                                 <div style="text-align: center; overflow: hidden; width: 160px; height: 35px;" class="btn btn-danger">
@@ -54,9 +54,17 @@
                                 <div class="jcarousel-wrapper">
                                     <div class="jcarousel" style="background-color: white">
                                         <ul>
-                                            <li><img src="images/watermarks/img1.jpg" width="200" height="200" alt=""></li>
-                                            <li><img src="images/watermarks/img2.jpg" width="200" height="200" alt=""></li>
-                                            <li><img src="images/watermarks/1.png" width="200" height="200" alt=""></li>
+                                            <li><img src="images/watermarks/1.png" alt=""></li>
+                                            <li><img src="images/watermarks/2.png" alt=""></li>
+                                            <li><img src="images/watermarks/3.png" alt=""></li>
+                                            <li><img src="images/watermarks/4.png" alt=""></li>
+                                            <li><img src="images/watermarks/5.png" alt=""></li>
+                                            <li><img src="images/watermarks/6.png" alt=""></li>
+                                            <li><img src="images/watermarks/7.png" alt=""></li>
+                                            <li><img src="images/watermarks/8.png" alt=""></li>
+                                            <li><img src="images/watermarks/9.png" alt=""></li>
+                                            <li><img src="images/watermarks/10.png" alt=""></li>
+                                            <li><img src="images/watermarks/11.png" alt=""></li>
                                         </ul>
                                     </div>
 
@@ -73,18 +81,18 @@
                     <div data-bind="visible: step() == 3" style="display: none" class="tspcd50 form_inner">
                         <!--<div class="">Шаг 3. Ваш аватар для Alfa Jazz Festival</div>-->
                         <div class="">
-                            <img src="" width="200" height="200" class="watermark">
+                            <img src="" class="watermark">
                             <br><br>
                             <button class="btn btn-danger" data-bind="click: upload">Завантажити в профiль</button>
                         </div>
                     </div>
                     <div class="tspcd40" style="height: 50px">
                         <!-- ko if: step() > 1 -->
-                            <button style="float: left" class="btn btn-danger" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
+                            <button style="float: left" class="btn btn-danger btn_nav" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
                         <!-- /ko -->
 
                         <!-- ko if: step() < 3 -->
-                            <button style="float: right" class="btn btn-danger" data-bind="click: next_step, enable: next_enabled">Вперед</button>
+                            <button style="float: right" class="btn btn-danger btn_nav" data-bind="click: next_step, enable: next_enabled">Вперед</button>
                         <!-- /ko -->
                     </div>
             </div>

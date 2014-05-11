@@ -38,14 +38,13 @@ ViewModel = function() {
     };
 
     this.upload = function() {
-        VK.api('photos.getProfileUploadServer', {test_mode: true}, function(data) {
+        VK.api('photos.getProfileUploadServer', {}, function(data) {
             var params = {
                 url: data.response.upload_url,
                 data: $('.watermark').attr('src')
             };
             $.post('http://mif.webfactional.com/php/loader.php', params, function(data) {
                 data = JSON.parse(data);
-                data.test_mode = true;
                 VK.api('photos.saveProfilePhoto', data);
             });
         });

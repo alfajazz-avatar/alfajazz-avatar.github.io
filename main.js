@@ -163,7 +163,7 @@ function showPhotoResizer(url) {
             processData: false,
             success: function (data) {
                 console.log(data);
-                $('#photo_img').attr('src', data).show();
+                $('#photo_img').attr('src', data);
                 dialog.hide();
                 vm.isset_foto(true);
             }

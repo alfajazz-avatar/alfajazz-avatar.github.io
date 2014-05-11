@@ -114,7 +114,7 @@ function Dialog($dialog) {
             },
             buttons: [
                 {
-                    text: "Отмена",
+                    text: "Відміна",
                     click: function() {self.onCancel(); }
                 },
                 {

@@ -35,6 +35,7 @@ ViewModel = function() {
         loading_start();
         $.post('http://mif.webfactional.com/php/generator.php', params, function (data) {
             $('.watermark').attr('src', data);
+            $('#watermark_download').attr('href', data);
             loading_end();
         });
     };

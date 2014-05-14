@@ -93,11 +93,11 @@
                     </div>
                     <div class="tspcd40" style="height: 50px">
                         <!-- ko if: step() > 1 -->
-                            <button style="float: left" class="btn btn-danger btn_nav" data-bind="click: prev_step, enable: prev_enabled">Назад</button>
+                            <button style="float: left" class="btn btn-danger btn_nav" data-bind="click: prev_step, visible: prev_enabled">Назад</button>
                         <!-- /ko -->
 
                         <!-- ko if: step() < 3 -->
-                            <button style="float: right" class="btn btn-danger btn_nav" data-bind="click: next_step, enable: next_enabled">Вперед</button>
+                            <button style="float: right" class="btn btn-danger btn_nav" data-bind="click: next_step, visible: next_enabled">Вперед</button>
                         <!-- /ko -->
                     </div>
             </div>

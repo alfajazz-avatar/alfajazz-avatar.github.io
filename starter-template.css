@@ -314,3 +314,10 @@ body {
     z-index: 5000;
     height: 800px;
 }
+
+.alfajazz_footer_link {
+    font-weight: bold;
+    color: #df2828;
+    text-align: center;
+    display: block;
+}
